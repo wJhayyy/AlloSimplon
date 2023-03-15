@@ -1,0 +1,151 @@
+<!doctype html>
+
+
+<html lang="fr">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>AlloSimplon</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+
+
+<body>
+  
+  
+<!-- Navbar goes here -->
+<nav class="shadow-lg mb-16 z-10 relative">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-7">
+        <div>
+          <!-- Website Logo -->
+          <a href="#" class="flex items-center py-4 px-2">
+            <img src="assets/img/allosimplonimg.png" alt="Logo" class="h-8 w-32 mr-2">
+          </a>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50 transition duration-300">Home</a>
+          <a href="" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Services</a>
+          <a href="" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">About</a>
+          <a href="" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Contact Us</a>
+        </div>
+      </div>
+      <!-- Secondary Navbar items -->
+      <div class="hidden md:flex items-center space-x-3 ">
+        <a href="" class="py-2 px-2 font-medium text-slate-500 rounded hover:bg-gray-400 hover:text-slate-50 transition duration-300">Log In</a>
+        <a href="" class="py-2 px-2 font-medium text-slate-500 rounded hover:bg-gray-400 hover:text-slate-50 transition duration-300">Sign Up</a>
+      </div>
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button class="outline-none mobile-menu-button">
+        <svg class=" w-6 h-6 text-gray-500 hover:text-slate-50"
+          x-show="!showMenu"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      </div>
+    </div>
+  </div>
+  <!-- mobile menu -->
+  <div class="hidden mobile-menu z-10">
+    <ul class="">
+      <li class="active"><a href="index.html" class="block text-sm px-2 py-4 bg-slate-500 hover:bg-slate-50 text-slate-800 transition duration-300">Home</a></li>
+      <li><a href="#services" class="block text-sm px-2 py-4 bg-slate-500 hover:bg-slate-50 text-slate-800 transition duration-300">Services</a></li>
+      <li><a href="#about" class="block text-sm px-2 py-4 bg-slate-500 hover:bg-slate-50 text-slate-800 transition duration-300">About</a></li>
+      <li><a href="#contact" class="block text-sm px-2 py-4 bg-slate-500 hover:bg-slate-50 text-slate-800 transition duration-300">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <h1>Parallax Effect</h1>
+</header>
+
+<!-- Slider -->
+
+<div class="slider-div">
+
+  <div id="controls-carousel" class="relative" data-carousel="static">
+      <!-- Carousel wrapper -->
+      <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+          <!-- Item 1 -->
+          <div class="duration-700 ease-in-out" data-carousel-item>
+              <img src="assets/img/img-carrousel-1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+          <!-- Item 2 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+              <img src="assets/img/img-carrousel-2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+          <!-- Item 3 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="assets/img/img-carrousel-1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+          <!-- Item 4 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="assets/img/img-carrousel-2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+          <!-- Item 5 -->
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img src="assets/img/img-carrousel-1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+      </div>
+      <!-- Slider controls -->
+      <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+              <span class="sr-only">Previous</span>
+          </span>
+      </button>
+      <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              <span class="sr-only">Next</span>
+          </span>
+      </button>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  const btn = document.querySelector("button.mobile-menu-button");
+  const menu = document.querySelector(".mobile-menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
+
+  <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
+
+</body>
+
+
+</html>
