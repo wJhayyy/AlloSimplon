@@ -19,7 +19,7 @@
       <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="inscriptionbdd.php" method="POST">
 
 
 
@@ -27,32 +27,32 @@
                     <h2 class="text-center text-xl font-bold mb-12">Inscription</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
+                        <input type="email" name="email" required>
                         <label for="">Email</label>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="person-outline"></ion-icon>
-                      <input type="text" required>
+                      <input type="text" name="name" required>
                       <label for="">Nom</label>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="person-outline"></ion-icon>
-                      <input type="text" required>
+                      <input type="text" name="firstname" required>
                       <label for="">Prénom</label>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="call-outline"></ion-icon>
-                      <input type="text" required>
+                      <input type="text" name="num" required>
                       <label for="">Téléphone</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
+                        <input type="password" name="password" required>
                         <label for="">Mot de passe</label>
                     </div>
                     <div class="inputbox">
                       <ion-icon name="lock-closed-outline"></ion-icon>
-                      <input type="password" required>
+                      <input type="password" name="password" required>
                       <label for="">Confirme le mot de passe</label>
                     </div>
 

@@ -105,7 +105,8 @@
         <h3 class="m-auto text-slate-50 uppercase">Paris</h3>
         <p class="m-auto uppercase">Postes disponibles : 5</p>
 
-      </div></a>
+      </div>
+      </a>
 
       <hr class="mb-8">
 
