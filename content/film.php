@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!doctype html>
 
 
@@ -302,7 +307,6 @@
         });
       </script>
 
-    <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
     
 
 </body>

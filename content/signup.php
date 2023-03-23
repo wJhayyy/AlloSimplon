@@ -42,7 +42,7 @@
 
 
                     <div class="forget">
-                        <label for=""><input type="checkbox">Se souvenir de moi  <a class="ml-8" href="#">Mot de passe oublié ?</a></label>
+                        <label for="remembercheckbox"><input type="checkbox" name="rememberme" id="remembercheckbox">Se souvenir de moi  </label><a class="ml-8" href="#">Mot de passe oublié ?</a>
                       
                     </div>
                     <input type="submit" class="co-inscri-button block ml-auto mr-auto w-3/5 mt-12 mb-8 text-slate-50 bg-slate-500 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-full transition: duration-300">

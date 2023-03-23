@@ -16,9 +16,8 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
     if($user) {
         if(password_verify($password, $user['password'])) {
             // Stocker le message dans la variable de session
-    
-            $_SESSION['message'] = "Bienvenue !!!";
-            
+
+
             $req = $bdd->prepare('SELECT * FROM user WHERE email = "$email"');
             $req -> execute();
             $usser = $req->fetch();
@@ -28,6 +27,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['password']=$user['password'];
             $_SESSION['name']=$user['name'];
             $_SESSION['firstname']=$user['firstname'];
+            $_SESSION['id_role']=$user['id_role'];  
 
             // Rediriger l'utilisateur vers la page index.php
             header("Location: ../index.php");

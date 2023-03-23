@@ -1,39 +1,74 @@
 <?php
 
-function ajouter($nom, $desc, $prix, $quantité, $image)
+
+function databaseCo()
 {
-    if(require("content/configuration/connexionbdd.php"))
-    {
-        $req = $bdd->prepare("INSERT INTO produit (nom, description, prix, quantite_dispo, image) VALUES ($nom, $desc, $prix, $quantité, $image)");
-        $req->execute(array($nom, $desc, $prix, $quantité, $image));
-        $req->closeCursor();
-    }
+
+     // informations de connexion à la base de données
+
+$host = 'localhost';
+$dbname = 'allosimplon';
+$username = 'root';
+$password = 'root';
+
+// connexion à la base de données avec PDO
+
+try {
+  $bdd = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+  // Activer les erreurs PDO
+  $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Erreur de connexion à la base de données : " . $e->getMessage();
 }
 
-function afficher()
-{
-    if(require("config.php"))
-    {
-        $req=$bdd->prepare("SELECT * FROM produit ORDER BY id DESC");
-
-        $req->execute(array($id));
-
-        $data = $req->fetchAll(PDO::FETCH_OBJ);
-
-        return $data;
-
-        $req->closeCursor();
-    }
 }
 
-function supprimer($id)
-{
-    if(require("config.php"))
-    {
-        $req = $bdd->prepare("DELETE FROM produit WERE id=?");
 
-        $req->execute(array($id));
-    }
+function addFilm($nom, $date, $trailer, $categorie, $synopsis, $image)
+{
+
+    
+    $nom = htmlspecialchars($_POST['nom']);
+    $date = htmlspecialchars($_POST['date']);
+    $trailer = htmlspecialchars($_POST['trailer']);
+    $categorie =htmlspecialchars($_POST['categorie']);
+    $synopsis = htmlspecialchars($_POST['synopsis']);
+    $image = htmlspecialchars($_POST['image']);
+   
+    $add = $bdd->prepare("INSERT INTO films (nom, date, trailer, categorie, synopsis, image) VALUES (:nom, :date, :trailer, :categorie, :synopsis, :image)");
+   $add->bindParam(':nom', $nom);
+   $add->bindParam(':date', $date);
+   $add->bindParam(':trailer', $trailer);
+   $add->bindParam(':categorie', $categorie);
+   $add->bindParam(':synopsis', $synopsis);
+   $add->bindParam(':image', $image);
+   $add->execute();
+   
+   
+   
+   
+    header("Location: crud.php");
+}
+
+function deleteFilm($id_film)
+{
+
+    $delete = $bdd; 
+    $delReq = "DELETE FROM films where id = '$id_film' ";
+    $stmt = $delete->query($delete);
+    $stmt = execute();
+    
+}
+
+function readFilm($id_film)
+{
+
+
+}
+
+function modifyFilm($id_film, $nom, $date, $trailer, $categorie, $synopsis, $image)
+{
+    
 }
 
 ?>
