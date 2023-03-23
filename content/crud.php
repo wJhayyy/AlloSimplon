@@ -126,19 +126,75 @@ include_once('include/navbar.php');
             </tr>
         </thead>
         <tbody>
-            <form action="fonction.php" method="POST">
+            <form action="formulaireTable.php" method="POST">
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Taxi
+                <th scope="row" name="nom"class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                
+                <?php
+                try {
+                    $slct = $bdd->prepare("SELECT nom FROM films WHERE id_film >= 306");
+                    $slct->execute();
+                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($resultat as $row) {
+                        echo $row['nom'] . "<br>";
+                    }
+                } catch(PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+                ?>
+
                 </th>
                 <td class="px-6 py-4">
-                    1998
+                    
+                <?php
+                try {
+                    $slct = $bdd->prepare("SELECT date FROM films WHERE id_film >= 306");
+                    $slct->execute();
+                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($resultat as $row) {
+                        echo $row['date'] . "<br>";
+                    }
+                } catch(PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+                ?>
+
                 </td>
                 <td class="px-6 py-4">
-                    Comédie, Drame
+                    
+                <?php
+                try {
+                    $slct = $bdd->prepare("SELECT categorie FROM films WHERE id_film >= 306");
+                    $slct->execute();
+                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($resultat as $row) {
+                        echo $row['categorie'] . "<br>";
+                    }
+                } catch(PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+                ?>
+
                 </td>
                 <td class="px-6 py-4">
-                    youtube.com/hfizuehlfief
+                    
+                <?php
+                try {
+                    $slct = $bdd->prepare("SELECT trailer FROM films WHERE id_film >= 306");
+                    $slct->execute();
+                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($resultat as $row) {
+                        echo $row['trailer'] . "<br>";
+                    }
+                } catch(PDOException $e) {
+                    echo "Erreur : " . $e->getMessage();
+                }
+                ?>
+
                 </td>
                 <td class="px-6 py-4">
                     

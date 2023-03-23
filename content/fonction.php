@@ -1,9 +1,6 @@
 <?php
 
 
-function databaseCo()
-{
-
      // informations de connexion à la base de données
 
 $host = 'localhost';
@@ -21,7 +18,7 @@ try {
   echo "Erreur de connexion à la base de données : " . $e->getMessage();
 }
 
-}
+
 
 
 function addFilm($nom, $date, $trailer, $categorie, $synopsis, $image)
@@ -52,12 +49,18 @@ function addFilm($nom, $date, $trailer, $categorie, $synopsis, $image)
 
 function deleteFilm($id_film)
 {
-
+    try{
     $delete = $bdd; 
     $delReq = "DELETE FROM films where id = '$id_film' ";
     $stmt = $delete->query($delete);
     $stmt = execute();
     
+}
+
+catch(PDOException $e){
+    echo "Erreur : " . $e->getMessage();
+}
+
 }
 
 function readFilm($id_film)
