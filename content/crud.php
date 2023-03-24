@@ -69,7 +69,7 @@ include_once('include/navbar.php');
                         <select id="categorie" name="categorie" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Catégorie</option>
                             <option value="Horreur">Horreur</option>
-                            <option value="Comédie">Comédie</option>
+                            <option value="Comedie">Comédie</option>
                             <option value="Drame">Drame</option>
                             <option value="Sci-Fi">Sci-Fi</option>
                         </select>
@@ -104,7 +104,7 @@ include_once('include/navbar.php');
 
 
 
-<div class="w-fit relative overflow-x-auto shadow-md sm:rounded-lg m-auto mt-20">
+<div class="w-fit relative overflow-x-auto shadow-md sm:rounded-lg m-auto mt-20 ">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -112,102 +112,51 @@ include_once('include/navbar.php');
                     Nom du film : 
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Année de sortie
+                    Année de sortie :
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Catégorie
+                    Catégorie : 
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Trailer : 
                 </th>
                 <th scope="col" class="px-16 py-3">
-                    Action
+                    Action : 
                 </th>
             </tr>
         </thead>
-        <tbody>
-            <form action="formulaireTable.php" method="POST">
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" name="nom"class="px-8 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                
-                <?php
-                try {
-                    $slct = $bdd->prepare("SELECT nom FROM films WHERE id_film >= 306");
-                    $slct->execute();
-                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($resultat as $row) {
-                        echo $row['nom'] . "<br>";
-                    }
-                } catch(PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
-                ?>
 
-                </th>
-                <td class="px-6 py-4">
-                    
-                <?php
-                try {
-                    $slct = $bdd->prepare("SELECT date FROM films WHERE id_film >= 306");
-                    $slct->execute();
-                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
+        
+        <tbody class="bg-white">
+        <?php
+        try {
+            $slct = $bdd->prepare("SELECT id_film, nom, date, categorie, trailer FROM films WHERE id_film >= 306");
+            $slct->execute();
+            $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
 
-                    foreach ($resultat as $row) {
-                        echo $row['date'] . "<br>";
-                    }
-                } catch(PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
-                ?>
-
-                </td>
-                <td class="px-6 py-4">
-                    
-                <?php
-                try {
-                    $slct = $bdd->prepare("SELECT categorie FROM films WHERE id_film >= 306");
-                    $slct->execute();
-                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach ($resultat as $row) {
-                        echo $row['categorie'] . "<br>";
-                    }
-                } catch(PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
-                ?>
-
-                </td>
-                <td class="px-6 py-4">
-                    
-                <?php
-                try {
-                    $slct = $bdd->prepare("SELECT trailer FROM films WHERE id_film >= 306");
-                    $slct->execute();
-                    $resultat = $slct->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach ($resultat as $row) {
-                        echo $row['trailer'] . "<br>";
-                    }
-                } catch(PDOException $e) {
-                    echo "Erreur : " . $e->getMessage();
-                }
-                ?>
-
-                </td>
-                <td class="px-6 py-4">
+            foreach ($resultat as $row) {
+                echo "<tr>";
+                echo "<td>" . $row['nom'] . "</td>";
+                echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $row['categorie'] . "</td>";
+                echo "<td>" . $row['trailer'] . "</td>";
+                echo "<td>";
+                echo "<div class='flex w-fit mb-4'>";
+                echo "<a href='modifier.php?id=" . $row['id_film'] . "'><button data-modal-toggle='Modalmodifycrud' class='block text-blue-50 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800' type='button'>Modifier</button></a>";
+                echo "<form method='POST' action='delete.php'><input type='hidden' name='id' value='" . $row['id_film'] . "'><button type='submit' name='delete' class='text-slate-50 ml-4 inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800'>Supprimer</button></form>";
+                echo "</div>";
+                echo "</td>";
+                echo "</tr>";
+            }
+        } catch(PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        ?>
                     
             </form>
                     <!-- Modal toggle -->
-                        <div class="flex w-fit">
-                            <button id="defaultModalButton" data-modal-toggle="Modalmodifycrud" class="block text-blue-50 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                            Modifié
-                            </button>
-                            <button type="submit" name="delete" class="text-slate-50 ml-4 inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                            Supprimer
-                        </button>
-                        </div>
+
 
                         <!-- Main modal -->
                         <div id="Modalmodifycrud" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
@@ -243,10 +192,10 @@ include_once('include/navbar.php');
                                                 <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Catégorie :</label>
                                                 <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                                     <option selected="">Catégorie</option>
-                                                    <option value="TV">Horreur</option>
-                                                    <option value="PC">Comédie</option>
-                                                    <option value="GA">Drame</option>
-                                                    <option value="PH">Sci-Fi</option>
+                                                    <option value="Horreur">Horreur</option>
+                                                    <option value="Comedie">Comédie</option>
+                                                    <option value="Drame">Drame</option>
+                                                    <option value="Sci-Fi">Sci-Fi</option>
                                                 </select>
                                             </div>
                                             <div class="sm:col-span-2">
@@ -266,10 +215,6 @@ include_once('include/navbar.php');
         </tbody>
     </table>
 </div>
-
-
-
-
 
 
 

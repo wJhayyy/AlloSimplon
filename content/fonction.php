@@ -47,7 +47,7 @@ function addFilm($nom, $date, $trailer, $categorie, $synopsis, $image)
     header("Location: crud.php");
 }
 
-function deleteFilm($id_film)
+function delete($id_film)
 {
     try{
     $delete = $bdd; 
@@ -59,6 +59,9 @@ function deleteFilm($id_film)
 
 catch(PDOException $e){
     echo "Erreur : " . $e->getMessage();
+
+    header("Location: crud.php");
+
 }
 
 }
