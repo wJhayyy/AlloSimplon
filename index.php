@@ -134,13 +134,21 @@ session_start();
               </div>
           </div>
 
-          <?php
+          
 
-          if ($_SESSION['id_role'] == 2) { // Vérifie si l'utilisateur est connecté et a le rôle d'admin
-    
-          echo '<a href="content/crud.php"><button class="z-50 sticky text-slate-50 bg-slate-500 top-20 m-auto rounded-full pl-4 pr-4 p-2 pb-2 block hover:bg-stone-600 transition duration-300">Panel Admin</button></a>';
+          <!--Vérifie si l'utilisateur est connecté et a le rôle d'admin-->
+          <?php
+          if(isset($_SESSION) && ($_SESSION ['id_role'] == 2)){ ?>
+            <button class="z-50 sticky text-slate-50 bg-slate-500 top-20 m-auto rounded-full pl-4 pr-4 p-2 pb-2 block hover:bg-stone-600 transition duration-300"><a href="content/crud.php">Panel Admin</a></button>
+          <?php
           }
           ?>
+
+          <!--<button type="button" class="z-50 sticky text-slate-50 bg-slate-500 top-20 m-auto rounded-full pl-4 pr-4 p-2 pb-2 block hover:bg-stone-600 transition duration-300"><a href="content/crud.php">Panel Admin</a>-->
+
+          
+
+          
         
 <header>
   
