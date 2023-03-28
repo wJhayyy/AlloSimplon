@@ -514,7 +514,300 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-body{
-    background-color: #02111B;
+.slider-div{
+  margin-left: 15%;
+  margin-right: 15%;
 }
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Monument Extended", Arial, Helvetica, sans-serif;
+}
+
+body {
+  color: white;
+  margin: 0;
+  padding: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+header {
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+  transform-style: inherit;
+  width: 100vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+header h1 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+header,
+header:before {
+  background: 50% 50% / cover;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: url(../img/parallax.jpg);
+  background-size: cover;
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  min-height: 100vh;
+  background-position-x: center;
+}
+
+h1{
+  font-size: 36px;
+  font-family: sans-serif;
+}
+
+h2{
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+
+h3{
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
+p{
+  font-size: 20px;
+}
+
+.card-accueil{
+  justify-content: space-around;
+}
+
+.card-film{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.voir-plus-link{
+  position: relative !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 28px;
+  margin-top: 20%;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.voir-plus-link:hover{
+  text-decoration: underline;
+}
+
+.taille-slider{
+  height: 44rem;
+}
+
+.synopsis-text{
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+
+
+
+/*  Inscription  */
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  
+  background: url('../img/pagesigninbg.jpg')no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-x: center;
+}
+.form-box{
+  position: relative;
+  width: 400px;
+  height: 825px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.inputbox{
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+.inputbox label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding:0 35px 0 5px;
+  color: #fff;
+}
+.inputbox ion-icon{
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}
+.forget{
+  margin: -15px 0 15px ;
+  font-size: .9em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;  
+}
+
+.forget label input{
+  margin-right: 3px;
+  
+}
+.forget label a{
+  color: #fff;
+  text-decoration: none;
+}
+.forget label a:hover{
+  text-decoration: underline;
+}
+.co-inscri-button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+.register{
+  font-size: .9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+.register p a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.register p a:hover{
+  text-decoration: underline;
+}
+
+
+/* Connexion */
+
+.section2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  
+  background: url('../img/pagesignup.jpg')no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-x: inherit;
+}
+
+.contact-background{
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+}
+
+.contact-bg{
+  background: url(../img/contactbgimg.jpg)no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-position-x: right;
+}
+
+
+.about-img-pdp{
+  width: 55%;
+}
+
+@media screen and (min-width: 350px){
+
+.trailer-video{
+  width: 60%;
+  height: 50%;
+}
+
+.text-about-princ{
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+.about-img-emploi{
+  width: 8%;
+}
+
+}
+
+
+@media screen and (min-width: 1200px){
+
+  .text-about-princ{
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  }
+
 

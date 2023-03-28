@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('coalabdd.php');
 ?>
 
 <!doctype html>
@@ -22,26 +23,38 @@ session_start();
 
 <?php require_once('include/navbar.php')?>
 
+        <?php
+            // Récupérer l'identifiant du film depuis l'URL
+            $id_film = $_GET['id'];
+
+            // Préparer la requête SQL pour récupérer les informations sur le film correspondant à l'identifiant
+            $slct = $bdd->prepare("SELECT * FROM films WHERE id_film = :id");
+
+            // Lier l'identifiant du film au paramètre nommé ":id" dans la requête SQL
+            $slct->bindParam(':id', $id_film);
+
+            // Exécuter la requête SQL
+            $slct->execute();
+
+            // Récupérer les informations sur le film sous forme de tableau associatif
+            $resultat = $slct->fetch(PDO::FETCH_ASSOC);
+        ?>
 
 
 
     
 
-      <img class="flex m-auto rounded-3xl" src="../assets/img/affiche-accueil1.jpg " width="34%"/>
+      <img class="flex m-auto rounded-3xl" src="../assets/img/<?php echo $resultat['image']?>" width="34%"/>
 
-      <h1 class="text-center mt-12 text-3xl mb-12 font-bold">Taxi</h1>
+      <h1 class="text-center mt-12 text-3xl mb-12 font-bold"><?php echo $resultat['nom']?></h1>
 
-      <h3 class="text-center">Sortie en 1998</h3>
+      <h3 class="text-center">Sortie en <?php echo $resultat['date']?></h3>
 
-      <h3 class="text-center mb-12">Catégorie : Comédie, Action</h3>
+      <h3 class="text-center mb-12">Catégorie : <?php echo $resultat['categorie']?></h3>
 
-      <p class="text-center synopsis-text">Daniel est un fou du volant. 
-        Cet ex-livreur de pizzas est aujourd'hui chauffeur de taxi et sait échapper aux radars les plus perfectionnés. 
-        Pourtant, un jour, il croise la route d'Emilien, policier recalé pour la huitième fois à son permis de conduire. 
-        Pour conserver son taxi, il accepte le marché que lui propose Emilien : 
-        l'aider à démanteler un gang de braqueurs de banques qui écume les succursales de la ville à bord de puissants véhicules.</p>
+      <p class="text-center synopsis-text"><?php echo $resultat['synopsis']?></p>
 
-
+            
 
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Réalisateurs</h2>
 
@@ -130,25 +143,9 @@ session_start();
         <h3 class="text-center mt-20 mb-12 font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Trailer</h3>
         
 
-        <iframe class="flex ml-auto mr-auto rounded-2xl trailer-video" width="560" height="315" src="https://www.youtube.com/embed/OnEcAcVPXUw" 
+        <iframe class="flex ml-auto mr-auto rounded-2xl trailer-video" width="560" height="315" src="<?php echo $resultat['trailer']?>" 
         title="YouTube video player" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           
 
@@ -228,6 +225,11 @@ session_start();
             </div>
           </footer>
 
+
+
+
+
+          
 
 
 <script>
