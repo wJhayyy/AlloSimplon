@@ -355,8 +355,17 @@ include_once('include/navbar.php');
                 foreach ($resultat as $resultat){
                     $id_acteurs = $resultat['id_acteurs'];
 
-                    var_dump($id_acteurs);
                 }
+
+                $rel = $bdd->prepare("SELECT * FROM tourne WHERE id_film = ?");
+                $rel->execute([$id_film]);
+                $resultat = $rel->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($resultat as $resultat){
+                    $id_real = $resultat['id_real'];
+
+                }
+
         
             }
         } catch(PDOException $e) {

@@ -38,7 +38,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
             $_SESSION['message'] = "Le mot de passe est incorrect.";
             
             // Rediriger l'utilisateur vers la page connexion.php
-            header("Location: film.php");
+            header("Location: ../index.php");
             exit(); // Arrêter l'exécution du script pour éviter l'envoi de données supplémentaires
         }
     } else {
@@ -46,7 +46,7 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['message'] = "Les identifiants sont incorrects.";
         
         // Rediriger l'utilisateur vers la page connexion.php
-        header("Location: pagefilm.php");
+        header("Location: ../index.php");
         exit(); // Arrêter l'exécution du script pour éviter l'envoi de données supplémentaires
     }
 }

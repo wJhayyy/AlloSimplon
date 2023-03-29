@@ -217,7 +217,7 @@ session_start();
 
 </h2>
 
-<div class="card-accueil flex mt-20">
+<div class="card-accueil flex mt-20 justify-evenly">
 
   <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
     <a href="#">

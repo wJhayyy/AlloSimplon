@@ -73,91 +73,85 @@ include_once('coalabdd.php');
     // Récupérer les informations sur les acteurs sous forme de tableau associatif
     $res = $slct->fetchAll(PDO::FETCH_ASSOC);
 
-    var_dump($res);
+?>
+
+
+<?php
+    // Récupérer l'identifiant du film depuis l'URL
+    $id_film = $_GET['id'];
+
+    // Préparer la requête SQL pour récupérer les informations sur les acteurs correspondant à l'identifiant de la table jouer
+    $slct = $bdd->prepare("SELECT realisateurs.* FROM tourne JOIN realisateurs ON tourne.id_real = realisateurs.id_real WHERE tourne.id_film = :id");
+
+    // Lier l'identifiant du film au paramètre nommé ":id" dans la requête SQL
+    $slct->bindParam(':id', $id_film);
+
+    // Exécuter la requête SQL
+    $slct->execute();
+
+    // Récupérer les informations sur les acteurs sous forme de tableau associatif
+    $real = $slct->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
   
 
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Réalisateurs</h2>
 
+        <div class="flex flex-row item-center ml-40 mr-40">
 
-        <div class="card-accueil flex mt-20 justify-evenly w-3/6 m-auto">
+<?php foreach($real as $result) {?>
+    
+    <div class="card-accueil flex mt-20 justify-evenly w-3/6">
 
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-4/6 z-10 relative">
+        <a href="#">
+            <img class="rounded-t-lg" src="../assets/img/<?php echo $result['img_real']?>" alt="" />
+        </a>
+        <div class="p-5">
             <a href="#">
-                <img class="rounded-t-lg" src="../assets/img/gerardpires.jpg" alt="" />
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $result['nom_real'] . ' ' . $result['prenom_real'] ?></h5>
             </a>
-            <div class="p-5">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gerard Pirès</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Réalisateur de Taxi 1</p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
-                    Read more
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
-            </div>
-          </div>
-        
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
-            <a href="#">
-                <img class="rounded-t-lg" src="../assets/img/lucbesson.jpg" alt="" />
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $result['description_real']?></p>
+            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
+                Read more
+                <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
-            <div class="p-5 bg-slate-50">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Luc Besson</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Scénariste de Taxi 1 - 2 - 3 et 4</p>
-              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
-                    Read more
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
-            </div>
-          </div>
         </div>
-
+    </div>
+    </div>
+    <?php } ?>
+    </div>
 
 
 
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Acteurs</h2>
 
+<div class="flex flex-row item-center ml-40 mr-40">
 
+        <?php foreach($res as $result) {?>
+            
+        <div class="card-accueil flex mt-20 justify-evenly w-3/6">
 
-
-        <div class="card-accueil flex mt-20 justify-evenly w-3/6 m-auto">
-
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-4/6 z-10 relative">
             <a href="#">
-                <img class="rounded-t-lg" src="../assets/img/samynaceri.jpg" alt="" />
+                <img class="rounded-t-lg" src="../assets/img/<?php echo $result['img_acteurs']?>" alt="" />
             </a>
             <div class="p-5">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $resultat['nom_acteurs']?></h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $result['nom_acteurs'] . ' ' . $result['prenom_acteurs'] ?></h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Personnage principal et chauffeur de taxi dans le film Taxi 1 - 2 - 3 et 4</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $result['descriptions']?></p>
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
                     Read more
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
-            </div>
-          </div>
-        
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
-            <a href="#">
-                <img class="rounded-t-lg" src="../assets/img/fredericdiefenthal.jpg" alt="" />
-            </a>
-            <div class="p-5 bg-slate-50">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Frédéric Diefenthal</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Personnage principal et policier dans le film Taxi 1 - 2 - 3 et 4</p>
-              <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
-                    Read more
-                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
             </div>
           </div>
         </div>
-
+        <?php } ?>
+</div>
 
 
 

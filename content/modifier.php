@@ -45,10 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $stmt->execute([$nom, $date, $trailer, $categorie, $synopsis, $id_film]);
 
         $sucessMessage = "Le film a été modifié avec succès";
+
+        header("Location: crud.php");
     }
 }
-
-header("location: crud.php")
-
 ?>
 
