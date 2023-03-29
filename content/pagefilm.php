@@ -38,6 +38,7 @@ include_once('coalabdd.php');
 
             // Récupérer les informations sur le film sous forme de tableau associatif
             $resultat = $slct->fetch(PDO::FETCH_ASSOC);
+
         ?>
 
 
@@ -56,6 +57,26 @@ include_once('coalabdd.php');
 
             
 
+      <?php
+    // Récupérer l'identifiant du film depuis l'URL
+    $id_film = $_GET['id'];
+
+    // Préparer la requête SQL pour récupérer les informations sur les acteurs correspondant à l'identifiant de la table jouer
+    $slct = $bdd->prepare("SELECT acteurs.* FROM jouer JOIN acteurs ON jouer.id_acteurs = acteurs.id_acteurs WHERE jouer.id_film = :id");
+
+    // Lier l'identifiant du film au paramètre nommé ":id" dans la requête SQL
+    $slct->bindParam(':id', $id_film);
+
+    // Exécuter la requête SQL
+    $slct->execute();
+
+    // Récupérer les informations sur les acteurs sous forme de tableau associatif
+    $res = $slct->fetchAll(PDO::FETCH_ASSOC);
+
+    var_dump($res);
+?>
+  
+
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Réalisateurs</h2>
 
 
@@ -67,7 +88,7 @@ include_once('coalabdd.php');
             </a>
             <div class="p-5">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gérard Pirès</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gerard Pirès</h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Réalisateur de Taxi 1</p>
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
@@ -110,7 +131,7 @@ include_once('coalabdd.php');
             </a>
             <div class="p-5">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Samy Naceri</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $resultat['nom_acteurs']?></h5>
                 </a>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Personnage principal et chauffeur de taxi dans le film Taxi 1 - 2 - 3 et 4</p>
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
@@ -229,7 +250,7 @@ include_once('coalabdd.php');
 
 
 
-          
+
 
 
 <script>
