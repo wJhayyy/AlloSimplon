@@ -612,8 +612,8 @@ p{
   display: block;
   font-size: 28px;
   margin-top: 20%;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .voir-plus-link:hover{
@@ -791,8 +791,23 @@ top: -5px;
   margin-right: 6rem;
 }
 
+.text-film-card{
+  font-size: 16px !important;
+}
+
+
 .about-img-emploi{
   width: 8%;
+}
+
+.card-film{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  
+}
+
+.card-accueil{
+  justify-items: center;
 }
 
 }
@@ -803,6 +818,15 @@ top: -5px;
   .text-about-princ{
     margin-left: 15%;
     margin-right: 15%;
+  }
+
+  .text-film-card{
+    font-size: 20px !important;
+  }
+
+  .card-film{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   }
 

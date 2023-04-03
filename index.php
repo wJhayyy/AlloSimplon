@@ -23,7 +23,7 @@ session_start();
 
 <!-- Navbar goes here -->
 <nav class="shadow-lg mb-16 z-10 relative">
-  <div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-6xl mx-auto">
     <div class="flex justify-between">
       <div class="flex space-x-7">
         <div>
@@ -37,11 +37,7 @@ session_start();
           <a href="content/film.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Nos films</a>
           <a href="content/contact.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Contact</a>
           <a href="content/about.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">A propos</a>
-        </div>
-      </div>
-      <!-- Secondary Navbar items -->
-      
-      <?php
+          <?php
 
         if(!isset($_SESSION['email'])){
 
@@ -57,6 +53,10 @@ session_start();
         }
 
       ?>
+        </div>
+      </div>
+      <!-- Secondary Navbar items -->
+
 
 
 
@@ -113,9 +113,6 @@ session_start();
                           </p>
                           <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
                           <?php echo 'Votre numéro de téléphone est ' . $_SESSION['num']?> 
-                          </p>
-                          <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
-                          <?php echo 'Votre mot de passe est ' . $_SESSION['password']?> 
                           </p>
                           <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
                           <?php echo 'Vous vous appeler ' . $_SESSION['name'] . $_SESSION['firstname']?> 
@@ -217,9 +214,9 @@ session_start();
 
 </h2>
 
-<div class="card-accueil flex mt-20 justify-evenly">
+<div class="card-accueil grid mt-20">
 
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
+  <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-3/6 z-10 relative card-film">
     <a href="#">
         <img class="rounded-t-lg" src="assets/img/affiche-accueil1.jpg" alt="" />
     </a>
@@ -227,7 +224,7 @@ session_start();
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Taxi</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Vener retrouver le taxi le plus fou de Marseille en compagnie de son ami policier !</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card">Vener retrouver le taxi le plus fou de Marseille en compagnie de son ami policier !</p>
         <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
             Read more
             <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -235,7 +232,7 @@ session_start();
     </div>
   </div>
 
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-2/6 z-10 relative">
+  <div class="mt-12 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-3/6 z-10 relative card-film">
     <a href="#">
         <img class="rounded-t-lg" src="assets/img/affiche-accueil2.jpg" alt="" />
     </a>
@@ -243,7 +240,7 @@ session_start();
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Pirates des Caraibes</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aller découvrir l'aventure d'un pirate pas comme les autres au destin unique </p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card">Aller découvrir l'aventure d'un pirate pas comme les autres au destin unique </p>
       <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
             Read more
             <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>

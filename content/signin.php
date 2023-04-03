@@ -58,7 +58,7 @@
 
 
                     <button class="co-inscri-button block ml-auto mr-auto w-3/5 mt-12 mb-8 text-slate-50 bg-slate-500 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-full transition: duration-300">
-                      Sign Up
+                      S'inscrire
                     </button>
                     <div class="register">
                         <p>Déjà inscrit ? <a href="signup.php">Connectez vous</a></p>

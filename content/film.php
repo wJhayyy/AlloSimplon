@@ -1,6 +1,19 @@
 <?php
 session_start();
 include_once('coalabdd.php');
+
+$filmParPages = 6;
+$filmTotalesReq = $bdd->query('SELECT id_film FROM films');
+$filmTotales = $filmTotalesReq->rowCount();
+
+if(isset($_GET['page']) AND !empty($_GET['page'])){
+    $_GET['page'] = intval($_GET['page']);
+    $pageCourante = $_GET['page'];
+} else {
+    $pageCourante = 1;
+}
+
+$depart = ($pageCourante-1)*$filmParPages;
 ?>
 
 
@@ -24,7 +37,6 @@ include_once('coalabdd.php');
     <?php require_once('include/navbar.php')?>
 
 
-
             <select id="countries" class="bg-slate-500 border border-zinc-800 text-slate-50 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 mr-auto ml-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Catégories</option>
                 <option value="HR">Horreur</option>
@@ -33,9 +45,9 @@ include_once('coalabdd.php');
                 <option value="SF">Sci-Fi</option>
             </select>
         
-            <div class="card-film grid grid-cols-2 gap-x-96 mt-20 w-full">
+            <div class="card-film grid gap-x-16 mt-20 w-full">
 
-            <?php
+            <?php  
             // Récupération des données de la table "articles"
             $slct = $bdd->prepare("SELECT * FROM films WHERE id_film >= 311");
             $slct->execute();
@@ -57,8 +69,8 @@ include_once('coalabdd.php');
                       <a href="#">
                           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $row['nom']?></h5>
                       </a>
-                      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $row['synopsis']?></p>
-                      <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
+                      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card"><?php echo $row['synopsis']?></p>
+                      <a href="<?php echo 'pagefilm.php?id=' . $row['id_film']; ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
                           Read more
                           <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </a>

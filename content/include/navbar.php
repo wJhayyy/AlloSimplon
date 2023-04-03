@@ -1,5 +1,5 @@
 <nav class="shadow-lg mb-16 z-10 relative">
-  <div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-6xl mx-auto">
     <div class="flex justify-between">
       <div class="flex space-x-7">
         <div>
@@ -13,11 +13,7 @@
           <a href="../content/film.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Nos films</a>
           <a href="../content/contact.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Contact</a>
           <a href="../content/about.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">A propos</a>
-        </div>
-      </div>
-      <!-- Secondary Navbar items -->
-      
-      <?php
+          <?php
 
         if(!isset($_SESSION['email'])){
 
@@ -33,6 +29,9 @@
         }
 
       ?>
+        </div>
+      </div>
+      <!-- Secondary Navbar items -->
 
 
 
@@ -93,9 +92,6 @@
                           </p>
                           <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
                           <?php echo 'Votre numéro de téléphone est ' . $_SESSION['num']?> 
-                          </p>
-                          <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
-                          <?php echo 'Votre mot de passe est ' . $_SESSION['password']?> 
                           </p>
                           <p class="text-base leading-relaxed text-slate-50 dark:text-gray-400">
                           <?php echo 'Vous vous appeler ' . $_SESSION['name'] . $_SESSION['firstname']?> 

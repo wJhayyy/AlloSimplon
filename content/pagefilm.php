@@ -97,13 +97,13 @@ include_once('coalabdd.php');
 
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Réalisateurs</h2>
 
-        <div class="flex flex-row item-center ml-40 mr-40">
+        <div class="flex flex-row item-center">
 
 <?php foreach($real as $result) {?>
     
     <div class="card-accueil flex mt-20 justify-evenly w-3/6">
 
-    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-4/6 z-10 relative">
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-5/6 z-10 relative">
         <a href="#">
             <img class="rounded-t-lg" src="../assets/img/<?php echo $result['img_real']?>" alt="" />
         </a>
@@ -111,7 +111,7 @@ include_once('coalabdd.php');
             <a href="#">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $result['nom_real'] . ' ' . $result['prenom_real'] ?></h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $result['description_real']?></p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card"><?php echo $result['description_real']?></p>
             <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
                 Read more
                 <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -127,13 +127,13 @@ include_once('coalabdd.php');
 
         <h2 class="text-center mt-12 text-xl font-bold bg-stone-400 w-fit m-auto p-4 rounded-full">Acteurs</h2>
 
-<div class="flex flex-row item-center ml-40 mr-40">
+<div class="flex flex-row item-center">
 
         <?php foreach($res as $result) {?>
             
         <div class="card-accueil flex mt-20 justify-evenly w-3/6">
 
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-4/6 z-10 relative">
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-5/6 z-10 relative">
             <a href="#">
                 <img class="rounded-t-lg" src="../assets/img/<?php echo $result['img_acteurs']?>" alt="" />
             </a>
@@ -141,7 +141,7 @@ include_once('coalabdd.php');
                 <a href="#">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $result['nom_acteurs'] . ' ' . $result['prenom_acteurs'] ?></h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $result['descriptions']?></p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card"><?php echo $result['descriptions']?></p>
                 <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
                     Read more
                     <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
