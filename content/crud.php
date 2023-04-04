@@ -27,7 +27,8 @@ if(empty($_SESSION) && $_SESSION ['id_role'] != 2){
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="https://cdn.tailwindcss.com/"></script>
+  <!-- <script src="https://cdn.tailwindcss.com/"></script> -->
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 
 
@@ -812,7 +813,7 @@ include_once('include/footer.php')
             container[y].style.display = "grid";
             container[1].style.display = "none";
 
-            span[y].style.background = "#5D737E";
+            span[y].style.background = "#D7263D";
             span[1].style.background = "#3F4045";
 
             span[y].style.color = "#FCFCFC";
@@ -828,7 +829,7 @@ else if ( y == 1 ) {
         container[0].style.display= "none";
         container[y].style.display= "grid";
            
-        span[y].style.background = "#5D737E";
+        span[y].style.background = "#D7263D";
         span[0].style.background = "#3F4045";
 
         span[y].style.color = "#FCFCFC";

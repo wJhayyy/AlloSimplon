@@ -12,7 +12,8 @@ session_start();
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="https://cdn.tailwindcss.com/"></script>
+  <!-- <script src="https://cdn.tailwindcss.com/"></script> -->
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 
 

@@ -10,19 +10,19 @@
         </div>
         <!-- Primary Navbar items -->
         <div class="hidden md:flex items-center space-x-1">
-          <a href="../content/film.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Nos films</a>
-          <a href="../content/contact.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">Contact</a>
-          <a href="../content/about.php" class="py-4 px-2 text-slate-500 font-semibold hover:text-slate-50  transition duration-300">A propos</a>
+          <a href="../content/film.php" class="py-4 px-2 text-fourth font-semibold hover:text-slate-50  transition duration-300">Nos films</a>
+          <a href="../content/contact.php" class="py-4 px-2 text-fourth font-semibold hover:text-slate-50  transition duration-300">Contact</a>
+          <a href="../content/about.php" class="py-4 px-2 text-fourth font-semibold hover:text-slate-50  transition duration-300">A propos</a>
           <?php
 
         if(!isset($_SESSION['email'])){
 
          echo '<div class="hidden md:flex items-center space-x-3 ">';
-         echo   '<a href="../content/signup.php" class="py-2 px-2 font-medium text-slate-500 rounded hover:bg-gray-400 hover:text-slate-50 transition duration-300">Se connecter</a>';
-         echo   '<a href="../content/signin.php" class="py-2 px-2 font-medium text-slate-500 rounded hover:bg-gray-400 hover:text-slate-50 transition duration-300">Sinscrire</a>';
+         echo   '<a href="../content/signup.php" class="py-2 px-2 font-medium text-fourth font-semibold rounded hover:bg-fifth hover:text-slate-50 transition duration-300">Se connecter</a>';
+         echo   '<a href="../content/signin.php" class="py-2 px-2 font-medium text-fourth font-semibold rounded hover:bg-fifth hover:text-slate-50 transition duration-300">Sinscrire</a>';
         } else {
             
-           echo '<button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block h-min mt-auto mb-auto font-medium text-lg text-slate-500 hover:bg-gray-400 hover:text-slate-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300" type="button">
+           echo '<button data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block h-min mt-auto mb-auto font-medium text-lg text-fourth hover:text-slate-50 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300" type="button">
                 Bonjour ' . $_SESSION['name'];
            echo  '</button>';
           echo '</div>';
@@ -114,7 +114,7 @@
 
           if ($_SESSION['id_role'] == 2) { // Vérifie si l'utilisateur est connecté et a le rôle d'admin
     
-          echo '<a href="crud.php"><button class="z-50 sticky text-slate-50 bg-slate-500 top-20 m-auto rounded-full pl-4 pr-4 p-2 pb-2 block hover:bg-stone-600 transition duration-300">Panel Admin</button></a>';
+          echo '<a href="crud.php"><button class="z-50 sticky text-slate-50 bg-fourth top-20 m-auto rounded-full pl-4 pr-4 p-2 pb-2 block hover:bg-fifth transition duration-300">Panel Admin</button></a>';
           }
           ?>
 

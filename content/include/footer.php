@@ -1,4 +1,4 @@
-<footer class="bg-zinc-700 dark:bg-gray-900 mt-40">
+<footer class="bg-third dark:bg-gray-900 mt-40">
     <div class="mx-auto w-full container p-4 sm:p-6">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">

@@ -28,7 +28,8 @@ $depart = ($pageCourante-1)*$filmParPages;
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="../assets/css/film.css">
-  <script src="https://cdn.tailwindcss.com/"></script>
+  <!-- <script src="https://cdn.tailwindcss.com/"></script> -->
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 
 
@@ -61,7 +62,7 @@ $depart = ($pageCourante-1)*$filmParPages;
                 
             ?>
 
-                <div class="odd:ml-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-16 w-full z-10 relative">
+                <div class="odd:ml-auto max-w-sm bg-secondary border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-16 w-full z-10 relative">
                 <a href="<?php echo 'pagefilm.php?id=' . $row['id_film']; ?>">
                       <img class="rounded-t-lg" src="../assets/img/<?php echo $row['image']?>" alt="" />
                   </a>
@@ -70,7 +71,7 @@ $depart = ($pageCourante-1)*$filmParPages;
                           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $row['nom']?></h5>
                       </a>
                       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-film-card"><?php echo $row['synopsis']?></p>
-                      <a href="<?php echo 'pagefilm.php?id=' . $row['id_film']; ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-50 bg-slate-500 rounded-lg hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
+                      <a href="<?php echo 'pagefilm.php?id=' . $row['id_film']; ?>" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-secondary bg-fourth rounded-lg hover:bg-fifth focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-300">
                           Read more
                           <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                       </a>
@@ -93,25 +94,25 @@ $depart = ($pageCourante-1)*$filmParPages;
         <div class="text-center pt-24">
             <ul class="inline-flex -space-x-px">
             <li>
-                <a href="#" class="px-3 py-2 ml-0 leading-tight text-slate-800 bg-slate-500 rounded-l-lg hover:bg-slate-50  hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">Previous</a>
+                <a href="#" class="px-3 py-2 ml-0 leading-tight text-slate-800 bg-fourth rounded-l-lg hover:bg-fifth  hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">Previous</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 text-slate-800  bg-slate-500 hover:bg-slate-50  hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white transition duration-300">1</a>
+                <a href="#" class="px-3 py-2 text-slate-800  bg-fourth hover:bg-fifth  hover:text-secondary dark:border-gray-700 dark:bg-gray-700 dark:text-white transition duration-300">1</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-slate-500  hover:bg-slate-50  hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">2</a>
+                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-fourth  hover:bg-fifth  hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">2</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-slate-500   hover:bg-slate-50  hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">3</a>
+                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-fourth   hover:bg-fifth  hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">3</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-slate-500 hover:bg-slate-50  hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">4</a>
+                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-fourth hover:bg-fifth  hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">4</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-slate-500  hover:bg-slate-50  hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">5</a>
+                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-fourth hover:bg-fifth  hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">5</a>
             </li>
             <li>
-                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-slate-500  rounded-r-lg hover:bg-slate-50 hover:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">Next</a>
+                <a href="#" class="px-3 py-2 leading-tight text-slate-800 bg-fourth rounded-r-lg hover:bg-fifth hover:text-secondary dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition duration-300">Next</a>
             </li>
             </ul>
         </div>

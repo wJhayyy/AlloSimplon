@@ -9,7 +9,8 @@
   <title>Titre de la page</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="script.js"></script>
-  <script src="https://cdn.tailwindcss.com/"></script>
+  <!-- <script src="https://cdn.tailwindcss.com/"></script> -->
+  <link href="../dist/output.css" rel="stylesheet">
 </head>
 
 
@@ -42,7 +43,7 @@
                         <label for="remembercheckbox"><input type="checkbox" name="rememberme" id="remembercheckbox">Se souvenir de moi  </label><a class="ml-8" href="#">Mot de passe oublié ?</a>
                       
                     </div>
-                    <input type="submit" value="Connexion" class="co-inscri-button block ml-auto mr-auto w-3/5 mt-12 mb-8 text-slate-50 bg-slate-500 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-full transition: duration-300">
+                    <input type="submit" value="Connexion" class="co-inscri-button block ml-auto mr-auto w-3/5 mt-12 mb-8 text-secondary bg-third hover:bg-fifth text-secondary font-bold py-2 px-4 rounded-full transition: duration-300">
                     <div class="register">
                         <p>Pas de compte ? <a href="signin.php">Inscrivez-vous</a></p>
                     </div>
